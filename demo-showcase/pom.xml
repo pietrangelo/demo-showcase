@@ -14,6 +14,10 @@
   <name>demo-showcase Showcase</name>
   <modules>
     <module>demo-webapp</module>
+<<<<<<< HEAD
+=======
+    <module>demo-client-webapp</module>
+>>>>>>> 16852aced93c0e255c2cc4c9975dbc44508cc5ed
     <module>demo-distribution-wars</module>
   </modules>
 </project>
