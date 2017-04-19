@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.uberfire</groupId>
+        <artifactId>demo-showcase</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>demo-client-webapp</artifactId>
+    <packaging>war</packaging>
+
+    <name>Uberfire Showcase Client only WebApp</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.uberfire</groupId>
+            <artifactId>uberfire-client</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.uberfire</groupId>
+            <artifactId>uberfire-workbench-client-views-patternfly</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.uberfire</groupId>
+            <artifactId>uberfire-workbench-processors</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-ext</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.gwt</groupId>
+            <artifactId>gwt-user</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>gwt-maven-plugin</artifactId>
+                <configuration>
+                    <module>org.uberfire.FastCompiledDemoShowcaseClient</module>
+                    <logLevel>INFO</logLevel>
+                    <strict>true</strict>
+                    <runTarget>index.html</runTarget>
+                    <extraJvmArgs>-Xmx712m -XX:CompileThreshold=7000</extraJvmArgs>
+                    <compileSourcesArtifacts>
+                        <compileSourcesArtifact>org.uberfire:uberfire-commons</compileSourcesArtifact>
+                        <compileSourcesArtifact>org.uberfire:uberfire-nio2-model</compileSourcesArtifact>
+                        <compileSourcesArtifact>org.uberfire:uberfire-io</compileSourcesArtifact>
+                        <compileSourcesArtifact>org.uberfire:uberfire-api</compileSourcesArtifact>
+                        <compileSourcesArtifact>org.uberfire:uberfire-backend-api</compileSourcesArtifact>
+                        <compileSourcesArtifact>org.uberfire:uberfire-security-api</compileSourcesArtifact>
+                        <compileSourcesArtifact>org.uberfire:uberfire-js</compileSourcesArtifact>
+                        <compileSourcesArtifact>org.uberfire:uberfire-security-client</compileSourcesArtifact>
+                        <compileSourcesArtifact>org.uberfire:uberfire-client-api</compileSourcesArtifact>
+                        <compileSourcesArtifact>org.uberfire:uberfire-workbench-client</compileSourcesArtifact>
+                        <compileSourcesArtifact>org.uberfire:uberfire-workbench-client-backend</compileSourcesArtifact>
+                        <compileSourcesArtifact>org.uberfire:uberfire-workbench-client-views-patternfly</compileSourcesArtifact>
+                    </compileSourcesArtifacts>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>gwt-clean</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>gwt-compile</id>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+
+    </build>
+
+    <profiles>
+        <profile>
+            <id>fullProfile</id>
+            <activation>
+                <property>
+                    <name>full</name>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin><!-- Keep in sync with soa profile -->
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>gwt-maven-plugin</artifactId>
+                        <configuration>
+                            <!-- Build all GWT permutations and optimize them -->
+                            <module>org.uberfire.demoShowcaseClient</module>
+                            <draftCompile>false</draftCompile>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+    
+</project>
