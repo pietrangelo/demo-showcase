@@ -4,14 +4,18 @@
 <module>
   <inherits name="org.uberfire.UberfireAPI"/>
   <inherits name="org.uberfire.UberfireClientAPI"/>
+  <inherits name="org.uberfire.UberfireClientAll"/>
   <inherits name="org.uberfire.UberfireWorkbench"/>
   <inherits name="org.uberfire.UberfireJS"/>
   <inherits name="org.uberfire.UberfireBackend"/>
   <inherits name="org.uberfire.UberfireWorkbenchBackend"/>
-
+  <inherits name="org.uberfire.ext.plugin.RuntimePluginAPI"/>
   <inherits name="org.uberfire.client.views.PatternFlyTheme"/>
 
   <inherits name="org.uberfire.component.DemoComponentClient"/>
+  <inherits name="org.uberfire.ext.layout.editor.UberfireLayoutEditorAPI"/>
+  <inherits name="org.uberfire.ext.layout.editor.UberfireLayoutEditorClient"/>
+
 
   <!-- Specify the paths for translatable code -->
   <source path='client'/>

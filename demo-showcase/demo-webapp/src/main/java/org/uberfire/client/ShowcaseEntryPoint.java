@@ -47,7 +47,13 @@ public class ShowcaseEntryPoint {
                             }
                         })
                         .endMenu()
-                        .newTopLevelMenu("Perspectives")
+                        .newTopLevelMenu("Perspective Editor")
+                        .respondsWith(new Command() {
+                            @Override
+                            public void execute() {
+                                placeManager.goTo(new DefaultPlaceRequest("PerspectiveEditorScreenActivity"));
+                            }
+                        })
                         .endMenu()
                         .build();
 
