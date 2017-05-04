@@ -16,6 +16,7 @@ import org.uberfire.client.mvp.PlaceManager;
 import org.uberfire.client.resources.AppResource;
 import org.uberfire.client.views.pfly.menu.MainBrand;
 import org.uberfire.client.workbench.events.ApplicationReadyEvent;
+import org.uberfire.client.workbench.widgets.menu.UtilityMenuBar;
 import org.uberfire.client.workbench.widgets.menu.WorkbenchMenuBar;
 import org.uberfire.mvp.Command;
 import org.uberfire.mvp.impl.DefaultPlaceRequest;
@@ -26,11 +27,17 @@ import static org.uberfire.workbench.model.menu.MenuFactory.newTopLevelMenu;
 @EntryPoint
 public class ShowcaseEntryPoint {
 
+
+
     @Inject
     private WorkbenchMenuBar menubar;
 
     @Inject
     private PlaceManager placeManager;
+
+    @Inject
+    private UtilityMenuBar utilityMenu;
+
 
     @PostConstruct
     public void startApp() {
