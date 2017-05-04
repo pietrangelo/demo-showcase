@@ -51,7 +51,7 @@ public class ShowcaseEntryPoint {
                         .respondsWith(new Command() {
                             @Override
                             public void execute() {
-                                placeManager.goTo(new DefaultPlaceRequest("PerspectiveEditorScreenActivity"));
+                                placeManager.goTo(new DefaultPlaceRequest("Perspective Editor"));
                             }
                         })
                         .endMenu()
